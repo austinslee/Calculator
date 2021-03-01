@@ -7,7 +7,10 @@
 int main(int argc, char** argv) {
 	AbstractFactory test;
 	Base* root = test.parse(argv, argc);
-	cout << root->stringify() << endl << root->evaluate() << endl;
+	if(root == nullptr) { cout << "null pointer returned" << endl; }
+	else {
+		cout << root->stringify() << endl << root->evaluate() << endl;
+	}
 	
 
 }

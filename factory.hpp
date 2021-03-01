@@ -11,6 +11,7 @@
 #include "pow.hpp"
 
 
+
 #include<iostream>
 #include<string>
 #include<string.h>
@@ -208,6 +209,7 @@ class AbstractFactory {
                                         temp = new Pow(temp,hold);
                                         ++i;
                                 }
+				else { return nullptr; }
 
 			}
 			return temp;
