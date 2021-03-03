@@ -17,6 +17,8 @@ class Pow : public Base {
 			exponent = input2;
 		}
 
+
+
 		virtual double evaluate() {			
 			return pow(operand->evaluate(), exponent->evaluate());
 		}

@@ -13,6 +13,10 @@ class Mult : public Base {
 			operand1 = left;
 			operand2 = right;
 		}
+		~Mult() {
+			delete operand1;
+			delete operand2;
+		}
 		virtual double evaluate() {
 			return this->operand1->evaluate() * this->operand2->evaluate();
 		}

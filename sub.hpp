@@ -6,11 +6,15 @@
 class Sub : public Base
 {
     public:
+	Base* left;
+	Base* right;
         Sub(Base*,Base*);
         double evaluate();
+	~Sub() {
+		delete left;
+		delete right;
+	}
         std::string stringify();
-        Base* left;
-        Base* right;
 };
 
 #endif

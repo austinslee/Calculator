@@ -6,11 +6,15 @@
 class Div : public Base
 {
     public:
+	Base* left;
+	Base* right;
         Div(Base*,Base*);
+	~Div() {
+		delete left;
+		delete right;
+	}
         double evaluate();
         std::string stringify();
-        Base* left;
-        Base* right;
 };
 
 #endif

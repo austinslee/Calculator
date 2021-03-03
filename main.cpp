@@ -11,6 +11,7 @@ int main(int argc, char** argv) {
 	else {
 		cout << root->stringify() << endl << root->evaluate() << endl;
 	}
+	delete root;
 	
 
 }

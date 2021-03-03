@@ -18,6 +18,7 @@ TEST(ParseTest, addTwoPositives) {
 	Base* root = test.parse(test_val, 4);
 	EXPECT_EQ(root->stringify(),"(1.000000+3.000000)");
 	EXPECT_EQ(root->evaluate(), 4);
+	delete root;
 }
 TEST(ParseTest, subTwoPositives) {
         char* test_val[4];
@@ -29,6 +30,7 @@ TEST(ParseTest, subTwoPositives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(1.000000-3.000000)");
         EXPECT_EQ(root->evaluate(), -2);
+	delete root;
 }
 
 TEST(ParseTest, multTwoPositives) {
@@ -41,6 +43,7 @@ TEST(ParseTest, multTwoPositives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(1.000000*3.000000)");
         EXPECT_EQ(root->evaluate(), 3);
+	delete root;
 }
 
 TEST(ParseTest, divTwoPositives) {
@@ -53,6 +56,7 @@ TEST(ParseTest, divTwoPositives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(1.000000/4.000000)");
         EXPECT_EQ(root->evaluate(), 0.25);
+	delete root;
 }
 
 TEST(ParseTest, powTwoPositives) {
@@ -65,6 +69,7 @@ TEST(ParseTest, powTwoPositives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(2.000000**3.000000)");
         EXPECT_EQ(root->evaluate(), 8);
+	delete root;
 }
 
 TEST(ParseTest, addSubThreePositives) {
@@ -79,6 +84,7 @@ TEST(ParseTest, addSubThreePositives) {
         Base* root = test.parse(test_val, 6);
         EXPECT_EQ(root->stringify(),"((1.000000+3.000000)-6.000000)");
         EXPECT_EQ(root->evaluate(), -2);
+	delete root;
 }
 
 TEST(ParseTest, multDivThreePositives) {
@@ -93,6 +99,7 @@ TEST(ParseTest, multDivThreePositives) {
         Base* root = test.parse(test_val, 6);
         EXPECT_EQ(root->stringify(),"((4.000000*3.000000)/2.000000)");
         EXPECT_EQ(root->evaluate(), 6);
+	delete root;
 }
 
 TEST(ParseTest, multPowThreePositives) {
@@ -107,6 +114,8 @@ TEST(ParseTest, multPowThreePositives) {
         Base* root = test.parse(test_val, 6);
         EXPECT_EQ(root->stringify(),"((4.000000*3.000000)**2.000000)");
         EXPECT_EQ(root->evaluate(), 144);
+        delete root;
+
 }
 
 TEST(ParseTest, OneOfEach) {
@@ -127,6 +136,8 @@ TEST(ParseTest, OneOfEach) {
         Base* root = test.parse(test_val, 12);
         EXPECT_EQ(root->stringify(),"(((((4.000000+3.000000)-2.000000)*4.000000)/2.000000)**2.000000)");
         EXPECT_EQ(root->evaluate(), 100);
+        delete root;
+
 }
 
 TEST(ParseTest, addTwoNegatives) {
@@ -139,6 +150,8 @@ TEST(ParseTest, addTwoNegatives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(-1.000000+-3.000000)");
         EXPECT_EQ(root->evaluate(), -4);
+        delete root;
+
 }
 TEST(ParseTest, subTwoNegatives) {
         char* test_val[4];
@@ -150,6 +163,8 @@ TEST(ParseTest, subTwoNegatives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(-1.000000--3.000000)");
         EXPECT_EQ(root->evaluate(), 2);
+        delete root;
+
 }
 
 TEST(ParseTest, multTwoNegatives) {
@@ -162,6 +177,8 @@ TEST(ParseTest, multTwoNegatives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(-1.000000*-3.000000)");
         EXPECT_EQ(root->evaluate(), 3);
+        delete root;
+
 }
 
 TEST(ParseTest, divTwoNegatives) {
@@ -174,6 +191,8 @@ TEST(ParseTest, divTwoNegatives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(-1.000000/-4.000000)");
         EXPECT_EQ(root->evaluate(), 0.25);
+        delete root;
+
 }
 
 TEST(ParseTest, powTwoNegatives) {
@@ -186,6 +205,8 @@ TEST(ParseTest, powTwoNegatives) {
         Base* root = test.parse(test_val, 4);
         EXPECT_EQ(root->stringify(),"(-2.000000**-3.000000)");
         EXPECT_EQ(root->evaluate(), -.125);
+        delete root;
+
 }
 
 
@@ -200,6 +221,8 @@ TEST(ParseTest, randomLetter) {
         AbstractFactory test;
         Base* root = test.parse(test_val, 6);
         EXPECT_EQ(root,nullptr);
+        delete root;
+
 }
 
 TEST(ParseTest, randomSymbol) {
@@ -213,6 +236,8 @@ TEST(ParseTest, randomSymbol) {
         AbstractFactory test;
         Base* root = test.parse(test_val, 6);
         EXPECT_EQ(root,nullptr);
+        delete root;
+
 }
 
 
