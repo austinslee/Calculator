@@ -17,7 +17,10 @@ class Pow : public Base {
 			exponent = input2;
 		}
 
-
+		~Pow() {
+			delete operand;
+			delete exponent;
+		}
 
 		virtual double evaluate() {			
 			return pow(operand->evaluate(), exponent->evaluate());
